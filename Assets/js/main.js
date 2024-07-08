@@ -43,6 +43,18 @@ function searchFoodHandler (event) {
     }
 }
 
+function searchRecipeHandler (event) {
+    
+    event.preventDefault(); 
+
+    const recipeID = event.target.id; // used to get recipeInfo by ID
+    getRecipeInfo(recipeID);
+}
+
+function displayRecipeSource(sourceURL) {
+    location.replace(redirectUrl);
+}
+
 function displayDishPairingForWine(winePairings) {
 
     // Remove the content for below elements when calling this function
@@ -63,7 +75,7 @@ function displayDishPairingForWine(winePairings) {
         searchRecipesByIngredients(dishes);
     }
     else {
-        const msg = $('<p>').addClass('p-2 mb-0').text(winePairings.message);
+        const msg = $('<p>').addClass('p-2 mb-0').css('color', 'red').text(winePairings.message);
         $('#search-results').append(msg); 
         console.log('Wine not recognized');
     }
@@ -77,13 +89,17 @@ function displayRecipes(recipes) {
         $('#search-results').append(question);
 
         for (let i = 0; i < recipes.length; i++) {
-            const title = $('<p>').addClass('p-2 mb-0 fw-bold').text(recipes[i].title);
+            const recipeID = recipes[i].id;
+            getRecipeInfo(recipeID);
+            
+            console.log('sourceURL 2',sourceURL);
+            const title = $('<button>').attr({'id':recipeID}, {'src': sourceURL}).addClass('recipe btn btn-link').text(recipes[i].title);
             const img = $('<img>').attr({'src':`${recipes[i].image}`, 'alt':'recipe-image'});
             const divImg = $('<div>');
             divImg.append(img);
             const divReceipe = $('<div>').addClass('float-start p-2');
             divReceipe.append(title, divImg);
-            $('#recipes').append(divReceipe);  
+            $('#recipes').append(divReceipe);           
         }      
     }
     else {
@@ -108,7 +124,7 @@ function displayPairedWine(pairedWines) {
       
     }
     else {
-        const msg = $('<p>').addClass('p-2 mb-0').text(pairedWines.message);
+        const msg = $('<p>').addClass('p-2 mb-0').css('color', 'red').text(pairedWines.message);
         $('#search-results').append(msg); 
         console.log('Could not find a wine pairing for meet');
     }    
@@ -119,5 +135,6 @@ $(document).ready(function () {
     // Call event handler functions when search input is submitted
     $('#search-wine').on('submit', searchWineHandler);  // Enter key
     $('#search-food').on('submit', searchFoodHandler);  // Enter key
+    $(document).on('click', '.recipe', searchRecipeHandler);  // Click on recipe
 
 });

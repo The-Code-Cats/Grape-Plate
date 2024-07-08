@@ -2,9 +2,9 @@
 
 // Get dish pairing for a food
 function getWinePairing(searchTerm) {
-    const foodURL = `https://api.spoonacular.com/food/wine/pairing?apiKey=${APIKey}&food=${searchTerm}`;
+    const dishURL = `https://api.spoonacular.com/food/wine/pairing?apiKey=${APIKey}&food=${searchTerm}`;
     
-    fetch(foodURL)
+    fetch(dishURL)
         .then((response) => {            
             if (!response.ok) {
                 console.log('Response status:', response.status);

@@ -23,7 +23,6 @@ function searchRecipesByIngredients(searchTerm) {
             response.json().then((recipes) => {
                 displayRecipes(recipes);
                 console.log('recipes:', recipes);
-                return recipes;                
             })                    
         })
         .catch((error) => {
