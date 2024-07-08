@@ -2,15 +2,14 @@ function searchRecipesByIngredients(searchTerm) {
 
     // User searchTerm to extract ingredients and pass to recipesURLe 
     const ingredients = searchTerm;
-    console.log('ingredients', ingredients);  
+    // console.log('ingredients', ingredients);  
 
     ingredients.forEach(function(ingredient, index) {
         ingredients[index] = '\'' + ingredient + '\'';
-    });
-    console.log('ingredients with quotes', ingredients);
+    });   
 
     let queryParam = ingredients.join(",+");    
-    console.log('ingredients', queryParam);
+    console.log('queryParam', queryParam);
    
     // https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2
 
@@ -23,8 +22,8 @@ function searchRecipesByIngredients(searchTerm) {
             }
             response.json().then((recipes) => {
                 displayRecipes(recipes);
-                // updateRecipesInLocalStorage(recipes);
                 console.log('recipes:', recipes);
+                return recipes;                
             })                    
         })
         .catch((error) => {
