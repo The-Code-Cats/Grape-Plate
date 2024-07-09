@@ -6,14 +6,15 @@ function searchWineHandler (event) {
 
     if (searchTerm === "") {
         console.log('show error');        
-        $('#errorWine').text('Please enter wine').css( 'color', 'red' );
+        $('#errorWine').text('Please enter wine').addClass('is-size-5 has-text-danger');
+        $('#errorFood').text(''); // Clear error message
     }
     else {        
         getDishPairingForWine(searchTerm);        
         
         $('#searchWine').val(''); // Clear search input        
         $('#errorWine').text(''); // Clear error message 
-    }
+    } 
 }
 
 function searchFoodHandler (event) {   
@@ -22,13 +23,15 @@ function searchFoodHandler (event) {
 
     if (searchTerm === "") {
         console.log('show error');
-        $('#errorFood').text('Please enter food').css('color', 'red');
+        $('#errorFood').text('Please enter food').addClass('is-size-5 has-text-danger');               
+        $('#errorWine').text(''); // Clear error message
+       
     }
     else {
         getWinePairing(searchTerm);
         
-        $('#searchWine').val(''); // Clear search input        
-        $('#errorWine').text(''); // Clear error message
+        $('#searchFood').val(''); // Clear search input        
+        $('#errorFood').text(''); // Clear error message
     }
 }
 

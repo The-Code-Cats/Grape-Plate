@@ -14,7 +14,7 @@ function displayDishPairingForWine(winePairings) {
         
         const div = $('<div>');
         for (let i = 0; i < winePairings.pairings.length; i++) {
-            let button = $('<button>').addClass('dish btn btn-link').text(winePairings.pairings[i]);
+            let button = $('<button>').addClass('dish button is-ghost').text(winePairings.pairings[i]);
             div.append(button); 
         }        
         $('#search-results').append(desc, rec, div);  
@@ -35,13 +35,22 @@ function displayRecipes(recipes) {
     if (recipes.status != 'failure') {  
         for (let i = 0; i < recipes.results.length; i++) {
             const recipeID = recipes.results[i].id;            
-            const title = $('<button>').attr({'id':recipeID}).addClass('recipe btn btn-link').text(recipes.results[i].title);
+
+            // card
+            const card = $('<div>').addClass('card');
+            
+            const divImage = $('<div>').addClass('card-image has-text-centered px-3');
             const img = $('<img>').attr({'src':`${recipes.results[i].image}`, 'alt':'recipe-image'});
-            const divImg = $('<div>');
-            divImg.append(img);
-            const divReceipe = $('<div>').addClass('float-start p-2');
-            divReceipe.append(title, divImg);
-            $('#recipes').append(divReceipe);           
+            
+            const divContent = $('<div>').addClass('card-content');
+            const title = $('<button>').attr({ 'id': recipeID }).addClass('title is-size-5 recipe button is-ghost').text(recipes.results[i].title);
+            
+            divImage.append(img);
+            divContent.append(title);
+            card.append(divImage, divContent);
+            $('#recipes').append(card);
+            // const figure = $('<figure>').addClass('image is-200x200');
+            
         }      
     }
     else {
@@ -73,7 +82,7 @@ function displayPairedWine(pairedWines) {
         for (let i = 0; i < pairedWines.productMatches.length; i++) {
             const link = pairedWines.productMatches[i].link;  
             console.log(link);
-            const title = $('<button>').attr({'src': link}).addClass('wine btn btn-link').text(pairedWines.productMatches[i].title);
+            const title = $('<button>').attr({'src': link}).addClass('wine button is-ghost').text(pairedWines.productMatches[i].title);
             const price = $('<span>').addClass('p-2 mb-0 fw-bold').text(pairedWines.productMatches[i].price);
             const div = $('<div>');
             div.append(title, price);
