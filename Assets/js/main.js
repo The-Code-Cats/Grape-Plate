@@ -1,4 +1,4 @@
-const APIKey = 'a957835674014562ab42b1ac05dec254';
+const APIKey = '8af27eda82f94fbaab427393bacc26d8';
 let dishes = []; // used to build query params for the Recipes API
 
 function searchWineHandler (event) {
@@ -52,7 +52,7 @@ function searchRecipeHandler (event) {
 }
 
 function displayRecipeSource(sourceURL) {
-    location.replace(redirectUrl);
+    // location.replace(redirectUrl);
 }
 
 function displayDishPairingForWine(winePairings) {
@@ -92,8 +92,9 @@ function displayRecipes(recipes) {
             const recipeID = recipes[i].id;
             getRecipeInfo(recipeID);
             
-            console.log('sourceURL 2',sourceURL);
-            const title = $('<button>').attr({'id':recipeID}, {'src': sourceURL}).addClass('recipe btn btn-link').text(recipes[i].title);
+            // console.log('sourceURL 2',sourceURL);
+            // const title = $('<button>').attr({'id':recipeID}, {'src': sourceURL}).addClass('recipe btn btn-link').text(recipes[i].title);
+            const title = $('<button>').attr({'id':recipeID}).addClass('recipe btn btn-link').text(recipes[i].title);
             const img = $('<img>').attr({'src':`${recipes[i].image}`, 'alt':'recipe-image'});
             const divImg = $('<div>');
             divImg.append(img);

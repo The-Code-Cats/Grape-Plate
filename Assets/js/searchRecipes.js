@@ -1,11 +1,11 @@
 function searchRecipesByIngredients(searchTerm) {
 
-    // User searchTerm to extract ingredients and pass to recipesURLe 
+    // Use searchTerm to extract ingredients and pass to recipesURL 
     const ingredients = searchTerm;
     // console.log('ingredients', ingredients);  
 
     ingredients.forEach(function(ingredient, index) {
-        ingredients[index] = '\'' + ingredient + '\'';
+        ingredients[index] = '\'' + ingredient + '\''; 
     });   
 
     let queryParam = ingredients.join(",+");    
