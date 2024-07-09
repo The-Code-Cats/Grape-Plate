@@ -1,0 +1,20 @@
+
+
+// Get dish pairing for a food
+function getWinePairing(searchTerm) {
+    const dishURL = `https://api.spoonacular.com/food/wine/pairing?apiKey=${APIKey}&food=${searchTerm}`;
+    
+    fetch(dishURL)
+        .then((response) => {            
+            if (!response.ok) {
+                console.log('Response status:', response.status);
+            }
+            response.json().then((pairedWines) => {
+                displayPairedWine(pairedWines);
+                console.log('pairedWines:', pairedWines);
+            })                    
+        })
+        .catch((error) => {
+                console.log(error);
+        });
+}
