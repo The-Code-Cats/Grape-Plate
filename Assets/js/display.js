@@ -68,6 +68,26 @@ function displayPairedWine(pairedWines) {
             
         const pairingText = $('<p>').addClass('p-2 mb-0 fw-bold').text(pairedWines.pairingText);
         $('#search-results').append(pairingText);
+
+        //product matches array        
+        for (let i = 0; i < pairedWines.productMatches.length; i++) {
+            const link = pairedWines.productMatches[i].link;  
+            console.log(link);
+            const title = $('<button>').attr({'src': link}).addClass('wine btn btn-link').text(pairedWines.productMatches[i].title);
+            const price = $('<span>').addClass('p-2 mb-0 fw-bold').text(pairedWines.productMatches[i].price);
+            const div = $('<div>');
+            div.append(title, price);
+
+            const desc = $('<p>').addClass('p-2 mb-0 fw-bold').text(pairedWines.productMatches[i].description);
+
+            const img = $('<img>').attr({'src':`${pairedWines.productMatches[i].imageUrl}`, 'alt':'wine-image'});
+            const divImg = $('<div>');
+            divImg.append(img);
+            const divWine = $('<div>').addClass('float-start p-2');
+            divWine.append(div, desc, divImg);
+            $('#recipes').append(divWine);           
+        }      
+        
       
     }
     else {

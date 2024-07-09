@@ -44,12 +44,19 @@ function searchRecipeInfoHandler (event) {
     getRecipeSourceURL(recipeID);
 }
 
+function wineHandler(event) {
+    event.preventDefault();
+    const link = event.target.getAttribute('src');
+    displaySourceURL(link);
+}
+
 $(document).ready(function () {
     
     // Call event handler functions when search input is submitted
     $('#search-wine').on('submit', searchWineHandler);  // Enter key
     $('#search-food').on('submit', searchFoodHandler);  // Enter key
-    $(document).on('click', '.dish', searchRecipeHandler);  // Click on a dish
-    $(document).on('click', '.recipe', searchRecipeInfoHandler);  // Click on a recipe
+    $(document).on('click', '.dish', searchRecipeHandler);  // Click on a dish link
+    $(document).on('click', '.recipe', searchRecipeInfoHandler);  // Click on a recipe link
+    $(document).on('click', '.wine', wineHandler);  // Click on a wine link
 
 });
