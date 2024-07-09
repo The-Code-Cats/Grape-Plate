@@ -1,0 +1,21 @@
+
+// Get recipe information by recipe id 
+function getRecipeInfo(recipeID) {
+    const infoURL = `https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=${APIKey}`;
+    // https://api.spoonacular.com/recipes/716429/information?apiKey=a957835674014562ab42b1ac05dec254&includeNutrition=true
+    
+    fetch(infoURL)
+        .then((response) => {            
+            if (!response.ok) {
+                console.log('Response status:', response.status);
+            }
+            response.json().then((recipeInfo) => {
+                const sourceURL = recipeInfo.sourceURL;
+                console.log('sourceURL', sourceURL);
+                // displayRecipeSource(recipeInfo);
+            })                    
+        })
+        .catch((error) => {
+                console.log(error);
+        });
+}
