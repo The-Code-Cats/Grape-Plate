@@ -4,52 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food and Wine Pairing</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Assets/css/style.css">
 </head>
+<nav class="navbar has-shadow is-danger">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4qy0D4_YgXCj-85VbqKoXlL0M6IsAW_efg&s"
+                alt="site logo" style="max-height: 90px;">
 
-<body>
-    <div class="container my-5 mx-auto">
-        <div class="row bg-light">
-            <div class="col-12">
-                <h1>Food and Wine Pairing</h1>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="nav-links">
+        <div class="navbar-end">
+           
+            <section>
+            <div class="navbar-item userName" id="userNameElement">
             </div>
-            <div class="col-6">
-                <!-- input to search for a wine -->
+            <a class="navbar-item" href="https://github.com/The-Code-Cats/Grape-Plate">Check Out Our Code</a>
+
+           
+        </section>
+        </div>
+
+
+    </div>
+</nav>
+<body>
+    <div class="container my-6">
+        <div class="column">
+            <h1 class="title has-text-centered">Food and Wine Pairing</h1>
+
+        </div>
+        <!-- <div class="columns has-background-light py-3">            
+            <div class="column">
+                
                 <form id="search-wine">
-                    <label for="wine">Search for your favorite wine:</label>
+                    <label for="wine" class="is-size-6 has-text-weight-light">Search for your favorite wine:</label>
                     <input type="text" name="wine" id="searchWine">
                     <p id="errorWine"></p>
                 </form>
             </div>
-            <div class="col-6">
-                <!-- input to search for a food -->
+            <div class="column">
+                
                 <form id="search-food">
-                    <label for="food">Search for your favorite food:</label>
+                    <label for="food" class="is-size-6 has-text-weight-light">Search for your favorite food:</label>
                     <input type="text" name="food" id="searchFood">
                     <p id="errorFood"></p>
                 </form>
+            </div> -->
+        <!-- Results Section -->
+      
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <!-- Any other Bulma elements you want -->
+                
+
             </div>
-            <!-- div to output the search results -->
-            <div id="search-results" class="col-12"></div>
-            <!-- div to output the receipes -->
-            <div id="recipes" class="col-12 d-inline'"></div>
-            <!-- div to output the receipe information -->
-            <div id="recipe-info" class="col-12 d-inline'"></div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+            
+
         </div>
+        <div class="fixed-grid">
+            <div class="grid py-3">
+                <div class="cell is-6 has-text-centered">
+                    <!-- input to search for a wine -->
+                    <form id="search-wine">
+                        <label for="wine" class="is-family-primary is-size-6">Search for your favorite wine:</label>
+                        <input type="text" name="wine" id="searchWine">
+                        <p id="errorWine"></p>
+                    </form>
+                </div>
+                <div class="cell is-6 has-text-centered">
+                    <!-- input to search for a food -->
+                    <form id="search-food">
+                        <label for="food" class="is-family-primary is-size-6">Search for your favorite food:</label>
+                        <input type="text" name="food" id="searchFood">
+                        <p id="errorFood"></p>
+                    </form>
+                </div>
+            </div>
+        </div>       
+        
+        <!-- Outcome Section -->
+
+        <!-- div to output the search results -->
+        <div id="search-results" class="py-3"></div>
+
+        <!-- div to output the receipes -->
+        <div id="recipes" class="grid is-col-min-10"></div>
+
+        <!-- div to output the wine information -->
+        <div id="wine-info" class="py-3"></div>                    
+      
     </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <div class="columns"> 
+                <!-- Column 1 -->
+              <div class="column"> 
+            
+                <button id="openModalButton" class="button is-primary">Open Modal</button>
+                <div id="myModal" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                      <header class="modal-card-head">
+                        <p class="modal-card-title">Modal title</p>
+                        <button class="delete" aria-label="close" id="close-signup-modal"></button>
+                      </header>
+                      <section class="modal-card-body">
+                        <!-- Modal content goes here -->
+                        <div class="field">
+                            <label class="label">User Name</label>
+                            <div class="control">
+                              <input id= userName class="input" type="text" placeholder="e.g Alex Smith">
+                            </div>
+                          </div>
+                          
+                          <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                              <input id="emailInput" class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                            </div>
+                          </div>
+                      </section>
+                      <footer class="modal-card-foot">
+                        <div class="field is-grouped">
+                            <div class="control">
+
+                                <button id="modalSubmitButton" class="button is-link">Submit</button>
+                            </div>
+
+                        </div>
+                        <button class="button">Cancel</button>
+                      </footer>
+                    </div>
+                  </div>
+
+              </div> 
+            
+              <!-- Column 2 -->
+              <div class="column"> 
+                <h4 class="bd-footer-title  
+                           has-text-weight-medium  
+                           has-text-justify"> 
+                  
+                </h4> 
+            
+              </div> 
+               <!-- Column 3 -->
+    <div class="column"> 
+       
+    
+        <!-- Column 3 lists with links -->
+        <p class="bd-footer-link"> 
+            <a href="https://"> 
+                <span class="icon-text"> 
+                  <span>About Us</span> 
+                </span> 
+              </a> 
+            <br /> 
+
+    
+      </div> 
+        </div> 
+    </footer> 
+</body> 
+</html>
+      
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     
-    <script src="Assets/js/recipeInfo"></script>
-    <script src="Assets/js/searchRecipes.js"></script>
-    <script src="Assets/js/winePairing"></script>
-    <script src="Assets/js/dishPairing"></script>
+    <script src="Assets/js/apis.js"></script>    
+    <script src="Assets/js/display.js"></script>
     <script src="Assets/js/main.js"></script>
 
 </body>
 
 </html>
+
+
