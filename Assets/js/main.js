@@ -1,4 +1,5 @@
 const APIKey = 'a957835674014562ab42b1ac05dec254';
+
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 
@@ -42,6 +43,7 @@ function searchRecipeHandler (event) {
     const dish = event.target.innerText;
     searchRecipes(dish);
 }
+
 
 function searchRecipeInfoHandler (event) {
     event.preventDefault();
@@ -100,6 +102,7 @@ function handleModalSubmit(){
     }
 else{
         alert('Invaild username or email. Please try again.');
+
 
 
     }
