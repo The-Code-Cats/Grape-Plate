@@ -11,6 +11,9 @@
 }
 
 
+.backButtonContainer{
+    position: fixed;
+  }
 
 body{
     background-color: rgb(244, 246, 255);
@@ -19,6 +22,11 @@ body{
 #title{
     text-align: center;
     font-size: 50px;
+    
+}
+
+.theTeamTitle{
+    font-size: 30px;
     
 }
 
@@ -43,6 +51,7 @@ body{
     padding-top: 0;
 }
 
+
 .memberImage{
     /* margin: auto; */
     /* margin: 0; */
@@ -54,8 +63,13 @@ body{
 
     aspect-ratio: cos(30deg);
     clip-path: polygon(-50% 50%,50% 100%,150% 50%,50% 0);
+    /* box-shadow: 5px 10px #888888; */
 
 }
+
+
+
+
 /* .teamMemberContainer{
     padding: 10px;
 } */
@@ -68,6 +82,9 @@ body{
     margin-top: 60px;
     
 }
+
+
+
 img{
     /* border-radius: 10px; */
 }
@@ -106,3 +123,4 @@ img{
       transform: scale(1);
     }
   }
+
