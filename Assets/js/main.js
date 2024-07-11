@@ -10,6 +10,8 @@ function searchWineHandler (event) {
         $('#errorFood').text(''); // Clear error message
     }
     else {        
+        const recipesDiv = $('recipes');
+        recipesDiv.empty();
         getDishPairingForWine(searchTerm);        
         
         $('#searchWine').val(''); // Clear search input        
@@ -21,6 +23,7 @@ function searchFoodHandler (event) {
     event.preventDefault(); 
     const searchTerm = $('#searchFood').val().trim(); 
 
+
     if (searchTerm === "") {
         console.log('show error');
         $('#errorFood').text('Please enter food').addClass('is-size-5 has-text-danger');               
@@ -28,6 +31,8 @@ function searchFoodHandler (event) {
        
     }
     else {
+        const wineInfoDiv = $('#wine-info');
+        wineInfoDiv.empty();
         getWinePairing(searchTerm);
         
         $('#searchFood').val(''); // Clear search input        

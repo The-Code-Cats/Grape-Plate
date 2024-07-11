@@ -27,11 +27,11 @@
 <body>
     <div class="container my-6">
         <div class="column">
-            <h1 class="title has-text-centered">Food and Wine Pairing</h1>
+            <h1 class="title-2 has-text-centered">Food and Wine Pairing</h1>
         </div>
-        <div class="fixed-grid">
+        <div class="grid is-col-min-3">
             <div class="grid py-3">
-                <div class="cell is-6 has-text-centered">
+                <div class="cell has-text-centered">
                     <!-- input to search for a wine -->
                     <form id="search-wine">
                         <label for="wine" class="is-family-primary is-size-6">Search for your favorite wine:</label>
@@ -39,7 +39,10 @@
                         <p id="errorWine"></p>
                     </form>
                 </div>
-                <div class="cell is-6 has-text-centered">
+                <div class="cell has-text-centered">
+                    <p class="subtitle">OR</p>
+                </div>
+                <div class="cell has-text-centered">
                     <!-- input to search for a food -->
                     <form id="search-food">
                         <label for="food" class="is-family-primary is-size-6">Search for your favorite food:</label>
@@ -59,7 +62,7 @@
         <div id="recipes" class="grid is-col-min-10"></div>
 
         <!-- div to output the wine information -->
-        <div id="wine-info" class="py-3"></div>                    
+        <div id="wine-info" class="has-text-centered py-3"></div>                    
       
     </div>
     <!-- scripts -->

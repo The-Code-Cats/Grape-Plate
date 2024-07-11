@@ -1,3 +1,21 @@
 body {
     background-image: linear-gradient(to bottom, #dfe784, #afec9c, #7fedbd, #57eade, #4ee3f9);
 }
+
+.button.is-ghost {
+    word-break:break-all;
+    white-space: wrap;
+}
+
+div card-content {
+    padding: 15px !important;
+}
+
+/* .card {
+    --bulma-card-content-padding: 1rem;
+} */
+
+#wine-info {
+    width: 650px;
+    margin: auto;
+}
