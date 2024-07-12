@@ -22,6 +22,7 @@ function displayDishPairingForWine(searchTerm, winePairings) {
         const div = $('<div>').addClass('field is-grouped px-3');
         for (let i = 0; i < winePairings.pairings.length; i++) {
             let button = $('<button>').addClass('dish button is-primary is-dark').text(winePairings.pairings[i]);
+          
             div.append(button); 
         }     
 
@@ -31,8 +32,11 @@ function displayDishPairingForWine(searchTerm, winePairings) {
         $('#search-results').append(article);  
     }
     else {
+
         const msg = $('<p>').addClass('px-6 is-family-primary has-text-danger is-size-6').text(winePairings.message);
+
         $('#search-results').addClass('message is-success').append(msg);
+
     }    
 }
 
@@ -46,6 +50,7 @@ function displayRecipes(recipes) {
         for (let i = 0; i < recipes.results.length; i++) {
             const recipeID = recipes.results[i].id;            
 
+
             // creating a card
             const card = $('<div>').addClass('cell card has-text-centered');
             
@@ -53,17 +58,21 @@ function displayRecipes(recipes) {
             const img = $('<img>').attr({'src':`${recipes.results[i].image}`, 'alt':'recipe-image'}).addClass('py-3');
             
             const divContent = $('<div>').addClass('card-content');
+
             const title = $('<button>').attr({ 'id': recipeID }).addClass('is-size-6 recipe button is-ghost px-0').text(recipes.results[i].title);
+
             
             divImage.append(img);
             divContent.append(title);
             card.append(divImage, divContent);
+
             $('#recipes').append(card);            
         }      
     }
     else {
         const msg = $('<p>').addClass('px-6 is-family-primary has-text-danger is-size-6').text(recipes.message);
         $('#search-results').append(msg); 
+
     }    
 }
 
@@ -84,6 +93,7 @@ function displayPairedWine(pairedWines) {
         
     if (pairedWines.status != 'failure') {        
             
+
         const pairingText = $('<p>').addClass('is-family-primary is-size-6 py-2 px-6 mb-0').text(pairedWines.pairingText);
         $('#search-results').append(pairingText);
 
@@ -116,5 +126,6 @@ function displayPairedWine(pairedWines) {
     else {
         const msg = $('<p>').addClass('px-6 is-family-primary has-text-danger is-size-6').text(pairedWines.message);
         $('#search-results').append(msg); 
+
     }    
 }
