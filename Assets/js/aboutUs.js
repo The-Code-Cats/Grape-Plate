@@ -26,8 +26,14 @@ function handleBackButton(){
   window.location.href = "Index.html";
 }
 
+function handleGitHubButton(event){
+  window.location.href = "https://github.com/The-Code-Cats/Grape-Plate";
+}
 
-  $('#backButton').on('click', handleBackButton);  
+
+  $('#backButton').on('click', handleBackButton); 
+  
+  $('#titleGitHub').on('click', handleGitHubButton); 
 
   
 

@@ -18,6 +18,12 @@
     right: 2%;
 }
 
+.topNav{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
 body{
     background-color: rgb(244, 246, 255);
 }
@@ -29,8 +35,12 @@ body{
 }
 
 .theTeamTitle{
-    font-size: 30px;
-    
+    font-size: 80px;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: underline;
 }
 
 .theTeamTitle{
@@ -71,7 +81,9 @@ body{
 }
 
 
-
+.topNavBar, .bottomNavBar{
+    background-image: linear-gradient(to bottom, #dfe784, #afec9c, #7fedbd, #57eade, #4ee3f9);
+}
 
 /* .teamMemberContainer{
     padding: 10px;
@@ -127,3 +139,18 @@ img{
     }
   }
 
+
+#titleGitHub{
+    font-size: 100px;
+    text-align: center;
+}
+
+#titleGitHub:hover{
+    cursor: pointer;
+}
+
+
+#backButton{
+    width: 150px;
+    height: auto;
+}
