@@ -15,6 +15,8 @@ function searchWineHandler (event) {
     else {        
         const recipesDiv = $('recipes');
         recipesDiv.empty();
+        const wineInfoDiv = $('#wine-info');
+        wineInfoDiv.empty();
         getDishPairingForWine(searchTerm);        
         
         $('#searchWine').val(''); // Clear search input        
@@ -36,6 +38,8 @@ function searchFoodHandler (event) {
     else {
         const wineInfoDiv = $('#wine-info');
         wineInfoDiv.empty();
+        const recipesDiv = $('recipes');
+        recipesDiv.empty();
         getWinePairing(searchTerm);
         
         $('#searchFood').val(''); // Clear search input        
