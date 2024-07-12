@@ -28,7 +28,7 @@ function getDishPairingForWine(searchTerm) {
                 console.log('Response status:', response.status);
             }
             response.json().then((winePairings) => {
-                displayDishPairingForWine(winePairings);
+                displayDishPairingForWine(searchTerm, winePairings);
                 console.log('winePairings:', winePairings);
             })                    
         })
