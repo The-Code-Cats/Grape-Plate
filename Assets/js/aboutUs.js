@@ -20,3 +20,14 @@ $(document).ready(function () {
       }, text_speed);
     }
   })( jQuery )
+
+
+function handleBackButton(){
+  window.location.href = "Index.html";
+}
+
+
+  $('#backButton').on('click', handleBackButton);  
+
+  
+
