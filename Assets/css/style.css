@@ -1,4 +1,4 @@
-nav,
+
 body {
     background-image: linear-gradient(to bottom, #dfe784, #afec9c, #7fedbd, #57eade, #4ee3f9);
 }
@@ -40,7 +40,9 @@ body {
 
 }
 
-nav{
-
+nav,
+footer{
+ border-color: black;
+ border-width: 0.5px;
+ border-style: solid;
 }
-
