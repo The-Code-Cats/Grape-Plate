@@ -75,6 +75,9 @@ $(document).ready(function () {
     $(document).on('click', '.recipe', searchRecipeInfoHandler);  // Click on a recipe link
     $(document).on('click', '.wine', wineHandler);  // Click on a wine link
     $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
+
+
+
 });
 
 $('#modalSubmitButton').on('click', handleModalSubmit);  // Enter key
@@ -158,6 +161,13 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.classList.remove('is-active'); // Remove 'is-active' class to hide modal
       }
     });
+
+
+    if(localStorageContainsUser() == false){
+        modal.classList.add('is-active');
+    }
+
+
   });
 
 

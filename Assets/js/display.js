@@ -116,7 +116,8 @@ function displayPairedWine(pairedWines) {
             const title = $('<button>').attr({'src': link}).addClass('wine button is-ghost').text(pairedWines.productMatches[0].title);
             const price = $('<span>').addClass('py-2').text(pairedWines.productMatches[0].price);
 
-            divImage.append(img);
+            
+            if(ImageExists(img.src)) divImage.append(img);
             divContent.append(desc);
             footerDiv.append(title.slice(0,40), price);
             card.append(divImage, divContent, footerDiv);
@@ -128,4 +129,11 @@ function displayPairedWine(pairedWines) {
         $('#search-results').append(msg); 
 
     }    
+}
+
+
+function ImageExists(url){ 
+    var img = new Image();
+    img.src = url;
+    return img.height != 0;
 }
