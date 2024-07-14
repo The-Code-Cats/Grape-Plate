@@ -101,8 +101,8 @@ a{
     font-size: 4vw;
     
     position: absolute;
-    top: 20px;
-    left: 28%;
+    /* top: 15px; */
+    left: 35%;
     /* text-align: center; */
     /* margin-right: auto; */
     /* margin-left: 15%; */
@@ -115,13 +115,6 @@ a{
 
 }
 
-@media screen and (max-width:1200px){
-    .welcomeTitle{
-        top:20px;
-
-    }
-
-}
 
 @media screen and (min-width:1600px){
     .welcomeTitle{
