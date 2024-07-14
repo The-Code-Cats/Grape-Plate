@@ -164,12 +164,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     if(localStorageContainsUser() == false){
-        modal.classList.add('is-active');
+        setTimeout(handleModalOpenOnRefresh, 4000);
     }
 
 
   });
 
+
+  function handleModalOpenOnRefresh(){
+    var modal = document.getElementById('myModal');
+    modal.classList.add('is-active');
+  }
 
   (function( $ ){ // the link to this animation is found here https://codepen.io/worksbyvan/pen/QqNGbZ
   
