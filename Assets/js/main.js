@@ -75,7 +75,7 @@ function clearLocalStorage(){
     $('#openModalButton').removeClass('is-hidden').addClass('is-visible');
     $('#userNameElement').html("");
     logoutFlag = true;
-    $('#guestDisplayName').text("Welcome");
+    $('#guestDisplayName').text("Welcome Guest");
 }
 
 $(document).ready(function () {
@@ -89,7 +89,7 @@ $(document).ready(function () {
     $('#LogoutButton').on('click', clearLocalStorage);
     $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
 
-
+    
 
 });
 
@@ -120,7 +120,7 @@ function handleModalSubmit(){
         $('#userNameElement').html("Username:  " + userObject.userName + "" + "<br>Email: " +  userObject.email + "");
         $('#openModalButton').removeClass('is-visible').addClass('is-hidden');
         $('#LogoutButton').removeClass('is-hidden').addClass('is-visible');
-        
+        $('#guestDisplayName').text("Welcome " + userObject.userName);
         // closeModal();
 
         // save to local storage
