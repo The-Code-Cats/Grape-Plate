@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.bounce_in_animation').textAnimation(250, 100, 'slideDown');
+    $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
 });
 
 (function( $ ){ // the link to this animation is found here https://codepen.io/worksbyvan/pen/QqNGbZ

@@ -154,3 +154,7 @@ img{
     width: 150px;
     height: auto;
 }
+
+#userNameElement{
+    min-height: 100px;
+}

@@ -74,10 +74,7 @@ $(document).ready(function () {
     $(document).on('click', '.dish', searchRecipeHandler);  // Click on a dish link
     $(document).on('click', '.recipe', searchRecipeInfoHandler);  // Click on a recipe link
     $(document).on('click', '.wine', wineHandler);  // Click on a wine link
-
-
-
-
+    $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
 });
 
 $('#modalSubmitButton').on('click', handleModalSubmit);  // Enter key
@@ -103,7 +100,7 @@ function handleModalSubmit(){
 
         localStorage.setItem('currentUser',JSON.stringify(userObject));
         document.getElementById("myModal").classList.remove("is-active");
-        $('#userNameElement').html(userObject.userName);
+        $('#userNameElement').html("Username:  " + userObject.userName + "" + "<br>Email: " +  userObject.email + "");
         // closeModal();
 
         // save to local storage
@@ -124,10 +121,31 @@ function closeModal() {
   }
 
 
+function handleLocalStoragePageRender(){
+    // console.log(localStorageContainsUser());
+    if(localStorageContainsUser()){
+        renderUserNameOnLoad();
+    }
+    
+}
+
+function localStorageContainsUser(){
+    return currentUser != null;
+}
+
+function renderUserNameOnLoad(){
+    // console.log(currentUser);
+    $('#userNameElement').html("Username:  " + currentUser.userName + "" + "<br>Email: " +  currentUser.email + "");
+
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Get modal and open button elements
     var modal = document.getElementById('myModal');
     var openModalButton = document.getElementById('openModalButton');
+
+    handleLocalStoragePageRender();
 
     // Add click event listener to open button
     openModalButton.addEventListener('click', function () {
@@ -141,3 +159,23 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+
+  (function( $ ){ // the link to this animation is found here https://codepen.io/worksbyvan/pen/QqNGbZ
+  
+    $.fn.textAnimation = function( animation_speed, text_speed, animation ){
+      var text, i = 0;
+      var $this = $(this);
+      // store text and clear
+      text = $this.text();
+      $this.css('white-space', 'pre');
+      $this.html('');
+      
+      var addLetter = setInterval(function(){
+        $this.append('<div class="text_animation" style="display: inline-block; animation: ' + animation + ' ' + animation_speed + 'ms forwards">' + text[i] + '</div>');
+        i++;
+        if (i == text.length) clearInterval(addLetter);
+      }, text_speed);
+    }
+  })( jQuery )
+
