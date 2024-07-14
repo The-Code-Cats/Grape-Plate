@@ -52,7 +52,7 @@ function displayRecipes(recipes) {
 
 
             // creating a card
-            const card = $('<div>').addClass('cell card has-text-centered');
+            const card = $('<div>').addClass('cell card has-text-centered mb-2');
             
             const divImage = $('<div>').addClass('card-image has-text-centered px-3');
             const img = $('<img>').attr({'src':`${recipes.results[i].image}`, 'alt':'recipe-image'}).addClass('py-3');
