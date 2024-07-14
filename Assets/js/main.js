@@ -66,6 +66,16 @@ function wineHandler(event) {
     displaySourceURL(link);
 }
 
+function clearLocalStorage(){
+    currentUser = null;
+    localStorage.setItem('currentUser',JSON.stringify(currentUser));
+
+    $('#LogoutButton').removeClass('is-visible').addClass('is-hidden');
+    $('#openModalButton').removeClass('is-hidden').addClass('is-visible');
+    $('#userNameElement').html("");
+
+}
+
 $(document).ready(function () {
     
     // Call event handler functions when search input is submitted
@@ -74,7 +84,8 @@ $(document).ready(function () {
     $(document).on('click', '.dish', searchRecipeHandler);  // Click on a dish link
     $(document).on('click', '.recipe', searchRecipeInfoHandler);  // Click on a recipe link
     $(document).on('click', '.wine', wineHandler);  // Click on a wine link
-
+    $('#LogoutButton').on('click', clearLocalStorage);
+    $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
 
 
 
@@ -98,12 +109,17 @@ function handleModalSubmit(){
             userName : usernameInputEl.val(),
             email : emailInputEl.val()
         };
-
+        usernameInputEl.val("");
+        emailInputEl.val("");
         // console.log(userObject);
-
-        localStorage.setItem('currentUser',JSON.stringify(userObject));
+        currentUser = JSON.stringify(userObject);
+        localStorage.setItem('currentUser', currentUser);
         document.getElementById("myModal").classList.remove("is-active");
-        $('#userNameElement').html(userObject.userName);
+        $('#userNameElement').html("Username:  " + userObject.userName + "" + "<br>Email: " +  userObject.email + "");
+        $('#openModalButton').removeClass('is-visible').addClass('is-hidden');
+        $('#LogoutButton').removeClass('is-hidden').addClass('is-visible');
+        
+        
         // closeModal();
 
         // save to local storage
@@ -119,15 +135,38 @@ else{
 }
 
 function closeModal() {
-    console.log("is this working?");
+    // console.log("is this working?");
     document.getElementById("myModal").classList.remove("is-active");
   }
+
+
+function handleLocalStoragePageRender(){
+    // console.log(localStorageContainsUser());
+    if(localStorageContainsUser()){
+        renderUserNameOnLoad();
+    }
+    
+}
+
+function localStorageContainsUser(){
+    return currentUser != null;
+}
+
+function renderUserNameOnLoad(){
+    // console.log(currentUser);
+    $('#userNameElement').html("Username:  " + currentUser.userName + "" + "<br>Email: " +  currentUser.email + "");
+    $('#openModalButton').removeClass('is-visible').addClass('is-hidden');
+    $('#LogoutButton').removeClass('is-hidden').addClass('is-visible');
+
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {
     // Get modal and open button elements
     var modal = document.getElementById('myModal');
     var openModalButton = document.getElementById('openModalButton');
+
+    handleLocalStoragePageRender();
 
     // Add click event listener to open button
     openModalButton.addEventListener('click', function () {
@@ -140,4 +179,37 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.classList.remove('is-active'); // Remove 'is-active' class to hide modal
       }
     });
+
+
+    setTimeout(handleModalOpenOnRefresh, 4000);
+
+
   });
+
+
+  function handleModalOpenOnRefresh(){
+    console.log(localStorageContainsUser());
+    if(localStorageContainsUser() == false){
+        var modal = document.getElementById('myModal');
+        modal.classList.add('is-active');
+    }
+  }
+
+  (function( $ ){ // the link to this animation is found here https://codepen.io/worksbyvan/pen/QqNGbZ
+  
+    $.fn.textAnimation = function( animation_speed, text_speed, animation ){
+      var text, i = 0;
+      var $this = $(this);
+      // store text and clear
+      text = $this.text();
+      $this.css('white-space', 'pre');
+      $this.html('');
+      
+      var addLetter = setInterval(function(){
+        $this.append('<div class="text_animation" style="display: inline-block; animation: ' + animation + ' ' + animation_speed + 'ms forwards">' + text[i] + '</div>');
+        i++;
+        if (i == text.length) clearInterval(addLetter);
+      }, text_speed);
+    }
+  })( jQuery )
+

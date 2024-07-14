@@ -52,7 +52,7 @@ function displayRecipes(recipes) {
 
 
             // creating a card
-            const card = $('<div>').addClass('cell card has-text-centered');
+            const card = $('<div>').addClass('cell card has-text-centered mb-2');
             
             const divImage = $('<div>').addClass('card-image has-text-centered px-3');
             const img = $('<img>').attr({'src':`${recipes.results[i].image}`, 'alt':'recipe-image'}).addClass('py-3');
@@ -116,7 +116,8 @@ function displayPairedWine(pairedWines) {
             const title = $('<button>').attr({'src': link}).addClass('wine button is-ghost').text(pairedWines.productMatches[0].title);
             const price = $('<span>').addClass('py-2').text(pairedWines.productMatches[0].price);
 
-            divImage.append(img);
+            
+            if(ImageExists(img.src)) divImage.append(img);
             divContent.append(desc);
             footerDiv.append(title.slice(0,40), price);
             card.append(divImage, divContent, footerDiv);
@@ -128,4 +129,11 @@ function displayPairedWine(pairedWines) {
         $('#search-results').append(msg); 
 
     }    
+}
+
+
+function ImageExists(url){ 
+    var img = new Image();
+    img.src = url;
+    return img.height != 0;
 }
