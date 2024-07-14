@@ -66,6 +66,10 @@ function wineHandler(event) {
     displaySourceURL(link);
 }
 
+function burgerHandler(event) {
+    $('#nav-links').toggleClass('is-active');
+}
+
 $(document).ready(function () {
     
     // Call event handler functions when search input is submitted
@@ -74,10 +78,9 @@ $(document).ready(function () {
     $(document).on('click', '.dish', searchRecipeHandler);  // Click on a dish link
     $(document).on('click', '.recipe', searchRecipeInfoHandler);  // Click on a recipe link
     $(document).on('click', '.wine', wineHandler);  // Click on a wine link
-
-
-
-
+    
+    //   Mobile menu
+    $('#burger').on('click', burgerHandler); 
 });
 
 $('#modalSubmitButton').on('click', handleModalSubmit);  // Enter key
@@ -122,6 +125,8 @@ function closeModal() {
     console.log("is this working?");
     document.getElementById("myModal").classList.remove("is-active");
   }
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {

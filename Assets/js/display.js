@@ -59,7 +59,7 @@ function displayRecipes(recipes) {
             
             const divContent = $('<div>').addClass('card-content');
 
-            const title = $('<button>').attr({ 'id': recipeID }).addClass('is-size-6 recipe button is-ghost px-0').text(recipes.results[i].title);
+            const title = $('<button>').attr({ 'id': recipeID }).addClass('recipe button is-ghost px-0 is-size-7').text(recipes.results[i].title);
 
             
             divImage.append(img);
