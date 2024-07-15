@@ -62,17 +62,6 @@ function burgerHandler(event) {
     $('#nav-links').toggleClass('is-active');
 }
 
-function clearLocalStorage(){
-    currentUser = null;
-    localStorage.setItem('currentUser',JSON.stringify(currentUser));
-
-    $('#LogoutButton').removeClass('is-visible').addClass('is-hidden');
-    $('#openModalButton').removeClass('is-hidden').addClass('is-visible');
-    $('#userNameElement').html("");
-    logoutFlag = true;
-    $('#guestDisplayName').text("Welcome Guest");
-}
-
 function modalHandler(event) {
     event.preventDefault(); 
     // Clear error message
@@ -95,6 +84,7 @@ function signupHandler(event) {
         console.log('show error');        
         $('#errorSignUp').text('Please enter user name and/or email to sign up').css( 'color', 'red' );
     } else {
+        $('#show-username').removeClass('is-hidden').addClass('is-visible').text(`Welcome ${userName}`);
         console.log(userName, userEmail);
         const user = {
             name: userName,
@@ -112,10 +102,10 @@ function logoutHandler(event) {
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
+        $('#show-username').removeClass('is-visible').addClass('is-hidden');
         localStorage.removeItem('user');
         $('#logout').removeClass('is-visible').addClass('is-hidden'); // hide Logout button
         $('#signup').removeClass('is-hidden').addClass('is-visible'); // show SignUp button
-    
     }
 }
 
@@ -124,10 +114,12 @@ function renderPageOnLoad() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {        
         let userName = user.name;
+        $('#show-username').removeClass('is-hidden').addClass('is-visible').text(`Welcome ${userName}`);
         $('#logout').removeClass('is-hidden').addClass('is-visible'); 
         $('#signup').removeClass('is-visible').addClass('is-hidden'); 
     
     } else {
+        $('#show-username').removeClass('is-visible').addClass('is-hidden');
         $('#signup').removeClass('is-hidden').addClass('is-visible');
         $('#logout').removeClass('is-visible').addClass('is-hidden');     
     }
@@ -146,8 +138,7 @@ $(document).ready(function () {
     
     // Mobile menu
     $('#burger').on('click', burgerHandler); 
-    $('#LogoutButton').on('click', clearLocalStorage);
-    $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
+    // $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
 
     // Modal
     $('#signup').on('click', modalHandler);    
