@@ -1,4 +1,6 @@
-// Get dish pairing for a food
+const APIKey = 'a957835674014562ab42b1ac05dec254'; // api.spoonacular.com
+
+// Get wine pairing for a dish
 function getWinePairing(searchTerm) {
     const dishURL = `https://api.spoonacular.com/food/wine/pairing?apiKey=${APIKey}&food=${searchTerm}`;
     
@@ -16,7 +18,6 @@ function getWinePairing(searchTerm) {
                 console.log(error);
         });
 }
-
 
 // Get dish pairing for a wine
 function getDishPairingForWine(searchTerm) {
@@ -37,8 +38,8 @@ function getDishPairingForWine(searchTerm) {
         });
 }
 
+// Get dish pairing for a wine
 function searchRecipes(searchTerm) {
-
     const recipesURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIKey}&query=${searchTerm}&number=10`;                        
 
     console.log('recipesURL', recipesURL);
@@ -57,7 +58,7 @@ function searchRecipes(searchTerm) {
         });
 }
 
-// Get recipe information by recipe id 
+// Get recipe source URL by recipe id 
 function getRecipeSourceURL(recipeID) {
     const infoURL = `https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=${APIKey}`;
     
