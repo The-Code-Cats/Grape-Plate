@@ -4,6 +4,7 @@ body {
     margin: 0px auto;
     padding: 10px;
     background-image: linear-gradient(to bottom, #dfe784, #afec9c, #7fedbd, #57eade, #4ee3f9);
+    
 }
 
 .button.is-ghost {
@@ -20,8 +21,33 @@ div card-content {
     margin: auto;
 }
 
-.footer{
-    padding: 10px;  
+.userName{
+    font-size: 20px;
+    float: left;
+}
+
+.github-logo {
+    font-size: 65px;
+}
+
+/* a{
+    text-decoration: none;
+} */
+
+.navbar{
+    border-radius: 10px;
+}
+
+.welcomeTitle{
+    font-size: 4vw;    
+    position: absolute;
+    left: 35%;
+    font-weight: 400;
+}
+
+.footer {
+    min-height: 75px;
+    padding: 10px;
     left: 0;
     position: fixed;
     width: 100%;
@@ -31,109 +57,19 @@ div card-content {
 
 @media screen and (max-width: 1024px) {
     .navbar {
-            display: block;
-        }
-}
-.userName{
-    /* text-decoration: underline; */
-    font-size: 20px;
-    float: left;
-    /* padding-right: 200px; */
-    /* margin-right: 0px; */
-    /* margin-top: 25px; */
-    /* margin-bottom: none; */
-    /* min-height: 200px; */
-}
-
-
-
-.githubLogo{
-    font-size: 75px;
-    margin-right: auto;
-    margin-left: auto;
-
-    /* justify-content: center; */
-    /* margin-top: auto; */
-    /* height: 20px; */
-    /* width:99%; */
-    /* text-decoration: none; */
-}
-
-.githubLogo:hover{
-   font-size: 78px;
-   transition-duration: 0.15s;
-}
-
-
-a{
-    text-decoration: none;
-}
-
-.githubLogoContainer{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 50px;
-    border-radius: 10px;
-    width: 175px;
-    height: 100px;
-}
-
-.logoContainer{
-    margin-left: 50px;
-    border-radius: 10px;
-    img{
-        max-height: 90px;
+        display: block;
     }
 
-
-    img:hover{
-        max-height: 92px;
-        transition-duration: 0.15s;
+    .github-logo {
+        font-size: 40px;
     }
 }
-
-.brandContainer{
-    width: 200px;
-}
-
-
-.navbar{
-    border-radius: 10px;
-}
-
-
-.welcomeTitle{
-    font-size: 4vw;
-    
-    position: absolute;
-    /* top: 15px; */
-    left: 35%;
-    /* text-align: center; */
-    /* margin-right: auto; */
-    /* margin-left: 15%; */
-    /* width: 50%; */
-    /* margin-left: 30vw; */
-    /* margin-right: 25%; */
-    
-    font-weight: 400;
-    /* margin-left: 100px; */
-
-}
-
 
 @media screen and (min-width:1600px){
     .welcomeTitle{
         top:10px;
-
     }
-
 }
 
-
-.footer{
-    min-height: 75px;
-    /* border-top-left-radius: 10px;
-    border-top-right-radius: 10px; */
-}
 
 
