@@ -3,8 +3,11 @@ body {
     min-height: 100vh;
     margin: 0px auto;
     padding: 10px;
-    background-image: linear-gradient(to bottom, #dfe784, #afec9c, #7fedbd, #57eade, #4ee3f9);
-    
+    background-image: linear-gradient(to bottom, #dfe784, #afec9c, #7fedbd, #57eade, #4ee3f9);  
+}
+
+h1 {
+    display: inline;
 }
 
 .button.is-ghost {
@@ -17,7 +20,7 @@ div card-content {
 }
 
 #wine-info {
-    width: 650px;
+    width: 850px;
     margin: auto;
 }
 
@@ -30,19 +33,30 @@ div card-content {
     font-size: 65px;
 }
 
-/* a{
-    text-decoration: none;
-} */
+.navbar-menu {
+    align-items: center !important;
+    justify-content: center !important;
+}
 
 .navbar{
     border-radius: 10px;
 }
+.navbar-burger {
+    color: #7fedbd;
+}
 
 .welcomeTitle{
-    font-size: 4vw;    
-    position: absolute;
+    font-size: 1.2vw;    
+    /* position: absolute; */
     left: 35%;
     font-weight: 400;
+}
+
+#modal-h3 {
+    display: inline-block;
+}
+.modal-content {
+    width: 400px;
 }
 
 .footer {

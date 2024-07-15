@@ -49,7 +49,7 @@ function searchRecipes(searchTerm) {
                 console.log('Response status:', response.status);
             }
             response.json().then((recipes) => {
-                displayRecipes(recipes);
+                displayRecipes(recipes, searchTerm);
                 console.log('recipes:', recipes);
             })                    
         })
@@ -77,3 +77,19 @@ function getRecipeSourceURL(recipeID) {
         });
 }
 
+// Check if image exists
+function checkImageURL(imgURL) {
+    fetch(imgURL)
+        .then((response) => {            
+            if (!response.ok) {
+                // console.log('Response status:', response.status);
+                return false;
+            } else {               
+                // console.log('Response status:', response.status);
+                return true;
+            }                 
+        })
+        .catch((error) => {
+                // console.log(error);
+        });
+}
