@@ -26,16 +26,23 @@
             <span></span>
         </a>        
     </div>
-    <div class="navbar-menu" id="nav-links">
-        <div class="navbar-end">
-            <a class="navbar-item github-logo" href="https://github.com/The-Code-Cats/Grape-Plate"><i class="fa-brands fa-github"></i></a>
+            <!-- <button id="signup" class="button is-primary is-outlined">Sign-Up</button>
+            <button id="logout" class="button is-primary is-outlined is-hidden">Logout</button> -->
+            
+         <div class="navbar-menu" id="nav-links">
+        <div class="navbar-end aboutButton">
+            <a href="./aboutUs.html" class="button is-primary is-outlined is-pulled-right ">About Team Code-Cats</a>
         </div>
     </div>
 </nav>
 
 <body>
-    <div class="has-text-right">
-        <p class="is-hidden p-2" id="show-username"></p>
+
+    <div class="welcomeTitle has-text-right">
+        <p class="bounce_in_animation is-hidden p-2" id="show-username"></p>
+        <button id="signup" class="button is-primary is-outlined">Sign-Up</button>
+        <button id="logout" class="button is-primary is-outlined is-hidden">Logout</button>
+
     </div>
     <div class = "container">
         <div class="column has-text-centered">
@@ -51,6 +58,11 @@
                             <div class="control">
                                 <input id="searchWine" type="text" class="input" placeholder="Enter wine">
                             </div>
+                             <p class="control wineSearchButton">
+                                <button class="button is-info">
+                                  Search
+                                </button>
+                              </p>
                             <p id="errorWine"></p>
                         </div>                        
                     </form>
@@ -62,10 +74,17 @@
                     <!-- input to search for a food -->
                     <form id="search-food">
                         <div class="field">
+
                             <label class="label is-size-5">Search for your favorite food:</label>
                             <div class="control">
+
                                 <input id="searchFood" type="text" class="input" placeholder="Enter dish">
                             </div>
+                             <p class="control wineSearchButton">
+                                <button class="button is-info">
+                                  Search
+                                </button>
+                             </p>
                             <p id="errorFood"></p>
                         </div>
                     </form>
@@ -83,11 +102,11 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="content">
+        <!-- <div class="content">
             <button id="signup" class="button is-primary is-outlined">Sign-Up</button>
             <button id="logout" class="button is-primary is-outlined is-hidden">Logout</button>
             <a href="./aboutUs.html" class="button is-primary is-outlined is-pulled-right">About Team Code-Cats</a>
-        </div>
+        </div> -->
     </footer>
 
     <!-- Sign-up Modal -->

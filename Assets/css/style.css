@@ -3,7 +3,7 @@ body {
     min-height: 100vh;
     margin: 0px auto;
     padding: 10px;
-    background-image: linear-gradient(to bottom, #dfe784, #afec9c, #7fedbd, #57eade, #4ee3f9);  
+    background-image: linear-gradient(to bottom, #660033, #830740, #a0114b, #bf1c56, #de2860);
 }
 
 h1 {
@@ -92,4 +92,20 @@ div card-content {
 }
 
 
+.aboutButton{
+    height: 100%;
+    margin-top: 2px;
+    margin-right: 2px;
+    padding: 1px;
+}
+
+.wineSearchButton{
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+
+.button{
+    background-color:#556B2F;
+}
 
