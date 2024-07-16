@@ -1,4 +1,6 @@
-// Get dish pairing for a food
+const APIKey = 'a957835674014562ab42b1ac05dec254'; // api.spoonacular.com
+
+// Get wine pairing for a dish
 function getWinePairing(searchTerm) {
     const dishURL = `https://api.spoonacular.com/food/wine/pairing?apiKey=${APIKey}&food=${searchTerm}`;
     
@@ -17,7 +19,6 @@ function getWinePairing(searchTerm) {
         });
 }
 
-
 // Get dish pairing for a wine
 function getDishPairingForWine(searchTerm) {
     const wineURL = `https://api.spoonacular.com/food/wine/dishes?apiKey=${APIKey}&wine=${searchTerm}`;
@@ -28,7 +29,7 @@ function getDishPairingForWine(searchTerm) {
                 console.log('Response status:', response.status);
             }
             response.json().then((winePairings) => {
-                displayDishPairingForWine(winePairings);
+                displayDishPairingForWine(searchTerm, winePairings);
                 console.log('winePairings:', winePairings);
             })                    
         })
@@ -37,8 +38,8 @@ function getDishPairingForWine(searchTerm) {
         });
 }
 
+// Get dish pairing for a wine
 function searchRecipes(searchTerm) {
-
     const recipesURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIKey}&query=${searchTerm}&number=10`;                        
 
     console.log('recipesURL', recipesURL);
@@ -48,7 +49,7 @@ function searchRecipes(searchTerm) {
                 console.log('Response status:', response.status);
             }
             response.json().then((recipes) => {
-                displayRecipes(recipes);
+                displayRecipes(recipes, searchTerm);
                 console.log('recipes:', recipes);
             })                    
         })
@@ -57,7 +58,7 @@ function searchRecipes(searchTerm) {
         });
 }
 
-// Get recipe information by recipe id 
+// Get recipe source URL by recipe id 
 function getRecipeSourceURL(recipeID) {
     const infoURL = `https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=${APIKey}`;
     
@@ -76,3 +77,19 @@ function getRecipeSourceURL(recipeID) {
         });
 }
 
+// Check if image exists
+// function checkImageURL(imgURL) {
+//     fetch(imgURL)
+//         .then((response) => {            
+//             if (!response.ok) {
+//                 // console.log('Response status:', response.status);
+//                 return false;
+//             } else {               
+//                 // console.log('Response status:', response.status);
+//                 return true;
+//             }                 
+//         })
+//         .catch((error) => {
+//                 // console.log(error);
+//         });
+// }

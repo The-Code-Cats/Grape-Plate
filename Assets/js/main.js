@@ -1,8 +1,3 @@
-const APIKey = 'a957835674014562ab42b1ac05dec254';
-
-let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-
 function searchWineHandler (event) {    
     event.preventDefault(); 
     const searchTerm = $('#searchWine').val().trim(); 
@@ -13,6 +8,10 @@ function searchWineHandler (event) {
         $('#errorFood').text(''); // Clear error message
     }
     else {        
+        const recipesDiv = $('recipes');
+        recipesDiv.empty();
+        const wineInfoDiv = $('#wine-info');
+        wineInfoDiv.empty();
         getDishPairingForWine(searchTerm);        
         
         $('#searchWine').val(''); // Clear search input        
@@ -22,15 +21,18 @@ function searchWineHandler (event) {
 
 function searchFoodHandler (event) {   
     event.preventDefault(); 
-    const searchTerm = $('#searchFood').val().trim(); 
+    const searchTerm = $('#searchFood').val().trim();
 
     if (searchTerm === "") {
         console.log('show error');
         $('#errorFood').text('Please enter food').addClass('is-size-5 has-text-danger');               
-        $('#errorWine').text(''); // Clear error message
-       
+        $('#errorWine').text(''); // Clear error message       
     }
     else {
+        const wineInfoDiv = $('#wine-info');
+        wineInfoDiv.empty();
+        const recipesDiv = $('recipes');
+        recipesDiv.empty();
         getWinePairing(searchTerm);
         
         $('#searchFood').val(''); // Clear search input        
@@ -44,7 +46,6 @@ function searchRecipeHandler (event) {
     searchRecipes(dish);
 }
 
-
 function searchRecipeInfoHandler (event) {
     event.preventDefault();
     const recipeID = event.target.id;
@@ -57,7 +58,76 @@ function wineHandler(event) {
     displaySourceURL(link);
 }
 
+function burgerHandler(event) {
+    $('#nav-links').toggleClass('is-active');
+}
+
+function modalHandler(event) {
+    event.preventDefault(); 
+    // Clear error message
+    $('#errorSignUp').text(''); 
+    $('.modal').addClass('is-active');
+}
+
+function modalCloseHandler(event) {
+    event.preventDefault(); 
+    // Clear error message
+    $('#errorSignUp').text(''); 
+    $('.modal').removeClass('is-active');
+}
+
+function signupHandler(event) {
+    event.preventDefault();
+    let userName = $('#user-name').val();
+    let userEmail = $('#user-email').val();
+    if (userName === "" || userEmail === "") {
+        console.log('show error');        
+        $('#errorSignUp').text('Please enter user name and/or email to sign up').css( 'color', 'red' );
+    } else {
+        $('#show-username').removeClass('is-hidden').addClass('is-visible').text(` ${userName}`);
+        console.log(userName, userEmail);
+        const user = {
+            name: userName,
+            email: userEmail
+        };
+
+        localStorage.setItem('user', JSON.stringify(user));
+        $('.modal').removeClass('is-active'); // close modal
+        $('#signup').addClass('is-hidden'); // hide Sign Up button
+        $('#logout').removeClass('is-hidden').addClass('is-visible'); // show Logout button
+    }    
+}
+
+function logoutHandler(event) {
+    event.preventDefault();
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        $('#show-username').removeClass('is-visible').addClass('is-hidden');
+        localStorage.removeItem('user');
+        $('#logout').removeClass('is-visible').addClass('is-hidden'); // hide Logout button
+        $('#signup').removeClass('is-hidden').addClass('is-visible'); // show SignUp button
+    }
+}
+
+function renderPageOnLoad() {
+    // Retrieve user from the localStorage
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {        
+        let userName = user.name;
+        $('#show-username').removeClass('is-hidden').addClass('is-visible').text(` ${userName}`);
+        $('#logout').removeClass('is-hidden').addClass('is-visible'); 
+        $('#signup').removeClass('is-visible').addClass('is-hidden'); 
+    
+    } else {
+        $('#show-username').removeClass('is-visible').addClass('is-hidden');
+        $('#signup').removeClass('is-hidden').addClass('is-visible');
+        $('#logout').removeClass('is-visible').addClass('is-hidden');     
+    }
+}
+
 $(document).ready(function () {
+
+    renderPageOnLoad();
     
     // Call event handler functions when search input is submitted
     $('#search-wine').on('submit', searchWineHandler);  // Enter key
@@ -65,70 +135,39 @@ $(document).ready(function () {
     $(document).on('click', '.dish', searchRecipeHandler);  // Click on a dish link
     $(document).on('click', '.recipe', searchRecipeInfoHandler);  // Click on a recipe link
     $(document).on('click', '.wine', wineHandler);  // Click on a wine link
+    
+    // Mobile menu
+    $('#burger').on('click', burgerHandler); 
+    $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
 
-
-
-
+    // Modal
+    $('#signup').on('click', modalHandler);    
+    $('.delete').on('click', modalCloseHandler);
+    $('.modal-background').on('click', modalCloseHandler);
+    $('#modal-signup').on('click', signupHandler);
+    $('#logout').on('click', logoutHandler);
 });
 
-$('#modalSubmitButton').on('click', handleModalSubmit);  // Enter key
-let usernameInputEl = $('#userName');
-let emailInputEl = $('#emailInput');
+  (function( $ ){ // the link to this animation is found here https://codepen.io/worksbyvan/pen/QqNGbZ
 
+    $.fn.textAnimation = function( animation_speed, text_speed, animation ){
+      var text, i = 0;
+      
 
-
-
-function handleModalSubmit(){
-    // console.log("here");
-    // console.log(emailInputEl.val());
-    // console.log(usernameInputEl.val());
-    // console.log( typeof(usernameInputEl.val()));
-    if (usernameInputEl.val() !== "" && emailInputEl.val() !== ""){ // THIS ISN'T WORKING
-        // create a user object
-        const userObject = {
-            userName : usernameInputEl.val(),
-            email : emailInputEl.val()
-        };
-
-        // console.log(userObject);
-
-        localStorage.setItem('currentUser',JSON.stringify(userObject));
-        document.getElementById("myModal").classList.remove("is-active");
-        $('#userNameElement').html(userObject.userName);
-        // closeModal();
-
-        // save to local storage
-        // refresh page
+      var $this = $(this);
+      // store text and clear
+      text = $this.text();
+      $this.css('white-space', 'pre');
+      $this.html('');
+      
+      var addLetter = setInterval(function(){
+        $this.append('<div class="text_animation" style="display: inline-block; animation: ' + animation + ' ' + animation_speed + 'ms forwards">' + text[i] + '</div>');
+        i++;
+        if (i == text.length) clearInterval(addLetter);
+      }, text_speed);
     }
-else{
-        alert('Invaild username or email. Please try again.');
+  })( jQuery )
 
 
 
-    }
 
-}
-
-function closeModal() {
-    console.log("is this working?");
-    document.getElementById("myModal").classList.remove("is-active");
-  }
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Get modal and open button elements
-    var modal = document.getElementById('myModal');
-    var openModalButton = document.getElementById('openModalButton');
-
-    // Add click event listener to open button
-    openModalButton.addEventListener('click', function () {
-      modal.classList.add('is-active'); // Add 'is-active' class to show modal
-    });
-
-    // Add click event listener to close modal when clicking outside modal or on close button
-    modal.addEventListener('click', function (event) {
-      if (event.target === modal || event.target.classList.contains('delete')) {
-        modal.classList.remove('is-active'); // Remove 'is-active' class to hide modal
-      }
-    });
-  });
