@@ -8,6 +8,12 @@ body {
 
 h1 {
     display: inline;
+    font-style: italic;
+    color: antiquewhite;
+}
+
+label {
+    color: antiquewhite !important;
 }
 
 .button.is-ghost {
