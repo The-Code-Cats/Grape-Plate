@@ -84,7 +84,7 @@ function signupHandler(event) {
         console.log('show error');        
         $('#errorSignUp').text('Please enter user name and/or email to sign up').css( 'color', 'red' );
     } else {
-        $('#show-username').removeClass('is-hidden').addClass('is-visible').text(`Welcome ${userName}`);
+        $('#show-username').removeClass('is-hidden').addClass('is-visible').text(` ${userName}`);
         console.log(userName, userEmail);
         const user = {
             name: userName,
@@ -114,7 +114,7 @@ function renderPageOnLoad() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {        
         let userName = user.name;
-        $('#show-username').removeClass('is-hidden').addClass('is-visible').text(`Welcome ${userName}`);
+        $('#show-username').removeClass('is-hidden').addClass('is-visible').text(` ${userName}`);
         $('#logout').removeClass('is-hidden').addClass('is-visible'); 
         $('#signup').removeClass('is-visible').addClass('is-hidden'); 
     
@@ -138,7 +138,7 @@ $(document).ready(function () {
     
     // Mobile menu
     $('#burger').on('click', burgerHandler); 
-    // $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
+    $('.bounce_in_animation').textAnimation(250, 75, 'slideDown');
 
     // Modal
     $('#signup').on('click', modalHandler);    
