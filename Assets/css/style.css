@@ -86,4 +86,20 @@ div card-content {
 }
 
 
+.aboutButton{
+    height: 100%;
+    margin-top: 2px;
+    margin-right: 2px;
+    padding: 1px;
+}
+
+.wineSearchButton{
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+
+.button{
+    background-color:#556B2F;
+}
 
