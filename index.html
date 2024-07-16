@@ -15,7 +15,10 @@
     <div class="navbar-brand">
         <a class="navbar-item">
             <img src='./Logo/logo-no-background.png' alt="site logo" style="max-height: 80px;">
-        </a>        
+        </a>      
+        <div class="navbar-item  welcomeTitle " id="welcomeText">
+            <div class="bounce_in_animation">Welcome to Grape-Plate</div>
+        </div>
         <a id="burger" class="navbar-burger" role="button">
             <span></span>
             <span></span>
@@ -34,10 +37,12 @@
 </nav>
 
 <body>
+
     <div class="welcomeTitle has-text-right">
         <p class="bounce_in_animation is-hidden p-2" id="show-username"></p>
         <button id="signup" class="button is-primary is-outlined">Sign-Up</button>
         <button id="logout" class="button is-primary is-outlined is-hidden">Logout</button>
+
     </div>
     <div class = "container">
         <div class="column has-text-centered">
@@ -49,7 +54,7 @@
                     <!-- input to search for a wine -->
                     <form id="search-wine">
                         <div class="field">
-                            <label class="label">Search for your favorite wine:</label>
+                            <label class="label is-size-5">Search for your favorite wine:</label>
                             <div class="control">
                                 <input id="searchWine" type="text" class="input" placeholder="Enter wine">
                             </div>
@@ -63,14 +68,16 @@
                     </form>
                 </div>
                 <div class="cell is-flex">
-                    <p class="subtitle is-flex-grow-1 has-text-centered is-align-content-center">OR</p>
+                    <p class="subtitle is-flex-grow-1 has-text-centered is-align-content-center" style="color: antiquewhite;">OR</p>
                 </div>
                 <div class="cell has-text-centered">
                     <!-- input to search for a food -->
                     <form id="search-food">
                         <div class="field">
-                            <label class="label">Search for your favorite food:</label>
-                            <div class="control ">
+
+                            <label class="label is-size-5">Search for your favorite food:</label>
+                            <div class="control">
+
                                 <input id="searchFood" type="text" class="input" placeholder="Enter dish">
                             </div>
                              <p class="control wineSearchButton">

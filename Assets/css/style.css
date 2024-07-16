@@ -8,6 +8,12 @@ body {
 
 h1 {
     display: inline;
+    font-style: italic;
+    color: antiquewhite;
+}
+
+label {
+    color: antiquewhite !important;
 }
 
 .button.is-ghost {
@@ -46,7 +52,7 @@ div card-content {
 }
 
 .welcomeTitle{
-    font-size: 1.2vw;    
+    font-size: 2vw;    
     /* position: absolute; */
     left: 35%;
     font-weight: 400;
