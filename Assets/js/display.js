@@ -20,7 +20,8 @@ function displayDishPairingForWine(searchTerm, winePairings) {
         const rec = $('<p>').addClass('is-family-primary is-underlined py-2').text('Check our top rated recipes that are easy to make and sure to please:');
         const div = $('<div>').addClass('field is-grouped px-3');
         for (let i = 0; i < winePairings.pairings.length; i++) {
-            let button = $('<button>').addClass('dish button is-primary is-dark').text(winePairings.pairings[i]);
+            let button = $('<button>').addClass('dish button is-primary is-dark').text((winePairings.pairings[i]).toUpperCase());
+            
             div.append(button); 
         }     
         divMsgHeader.append(term);

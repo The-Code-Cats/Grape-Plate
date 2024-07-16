@@ -3,6 +3,7 @@ body {
     min-height: 100vh;
     margin: 0px auto;
     padding: 10px;
+    color:antiquewhite;
     background-image: linear-gradient(to bottom, #660033, #830740, #a0114b, #bf1c56, #de2860);
 }
 
@@ -56,6 +57,7 @@ div card-content {
     /* position: absolute; */
     left: 35%;
     font-weight: 400;
+
 }
 
 #modal-h3 {
@@ -107,5 +109,37 @@ div card-content {
 
 .button{
     background-color:#556B2F;
+    color:white;
 }
+
+#show-username{
+    color: #F5F5DC;
+}
+
+
+#signup, #logout, #aboutButton{
+    background-color: #556B2F;
+    border-color: #556B2F;
+    color: white;
+}
+
+#signup, #logout{
+    margin-top: 10px;
+}
+
+
+.message-header{
+    background-color: white;
+}
+
+.message-body{
+    background-color:   #F5F5DC;
+}
+
+.modal, 
+.modal label{
+    color:black !important; 
+}
+
+
 
