@@ -19,7 +19,7 @@
 
 
 function handleBackButton(){
-  window.location.href = "index.html";
+  window.location.href = "./";
 }
 
 function handleGitHubButton(event){
