@@ -78,18 +78,18 @@ function getRecipeSourceURL(recipeID) {
 }
 
 // Check if image exists
-// function checkImageURL(imgURL) {
-//     fetch(imgURL)
-//         .then((response) => {            
-//             if (!response.ok) {
-//                 // console.log('Response status:', response.status);
-//                 return false;
-//             } else {               
-//                 // console.log('Response status:', response.status);
-//                 return true;
-//             }                 
-//         })
-//         .catch((error) => {
-//                 // console.log(error);
-//         });
-// }
+function checkImageURL(imgURL) {
+    fetch(imgURL)
+        .then((response) => {            
+            if (!response.ok) {
+                // console.log('Response status:', response.status);
+                return false;
+            } else {               
+                // console.log('Response status:', response.status);
+                return true;
+            }                 
+        })
+        .catch((error) => {
+                // console.log(error);
+        });
+}
