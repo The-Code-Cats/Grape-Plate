@@ -85,7 +85,7 @@ function signupHandler(event) {
         $('#errorSignUp').text('Please enter user name and/or email to sign up').css( 'color', 'red' );
     } else {
         $('#show-username').removeClass('is-hidden').addClass('is-visible').text(` ${userName}`);
-        console.log(userName, userEmail);
+        // console.log(userName, userEmail);
         const user = {
             name: userName,
             email: userEmail
